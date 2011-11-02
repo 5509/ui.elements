@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>ui.elements</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<link href="ui.elements/ui.elements.css" rel="stylesheet">
+	<style>
+		body {
+			color: #555;
+			background: url(images/bg.png) repeat;
+			font-size: 14px;
+		}
+	</style>
+	<script src="ui.elements/ui.elements.js"></script>
+	<script>
+		jQuery(function($) {
+			$('form').UIElements({
+				checkbox: [
+					{ name: 'checkbox[]' }
+				],
+				radio: [
+					{ name: 'radio' }
+				],
+				select: [
+					{ name: 'select' }
+				]
+			});
+		});
+	</script>
+</head>
+<body>
+	<form method="get" action="">
+		<div class="set">
+			<span class="label">checkbox</span>
+			<span class="checkboxes elm-set">
+				<label for="check1"><input type="checkbox" name="checkbox[]" id="check1" value="1">checkbox1</label>
+				<label for="check2"><input type="checkbox" name="checkbox[]" id="check2" value="2" checked>checkbox2</label>
+				<label for="check3"><input type="checkbox" name="checkbox[]" id="check3" value="3">checkbox3</label>
+				<label for="check4"><input type="checkbox" name="checkbox[]" id="check4" value="4">checkbox4</label>
+			</span>
+		</div>
+		<div class="set">
+			<span class="label">radio</span>
+			<span class="radios elm-set">
+				<label for="radio1"><input type="radio" name="radio" id="radio1" value="1">radio1</label>
+				<label for="radio2"><input type="radio" name="radio" id="radio2" value="2">radio2</label>
+				<label for="radio3"><input type="radio" name="radio" id="radio3" value="3">radio3</label>
+				<label for="radio4"><input type="radio" name="radio" id="radio4" value="4">radio4</label>
+			</span>
+		</div>
+		<div class="set">
+			<label for="select">select</label>
+			<span class="select elm-set">
+				<select id="select" name="select">
+					<option value="">Selet Here...</option>
+					<option value="hogehogehoge">hogehogehoge</option>
+					<option value="fugafugafuga">fugafugafuga</option>
+					<option value="piyopiyo">piyopiyo</option>
+				</select>
+			</span>
+		</div>
+
+		<p class="button">
+			<input type="submit" value="Submit">
+		</p>
+	</form>
+
+</body>
+</html>
