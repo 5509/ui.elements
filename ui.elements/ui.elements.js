@@ -1,13 +1,13 @@
 /**
  * UI.Elements
  *
- * @version      0.3
+ * @version      0.4
  * @author       nori (norimania@gmail.com)
  * @copyright    5509 (http://5509.me/)
  * @license      The MIT License
  * @link         https://github.com/5509/ui.elements
  *
- * 2011-12-01 15:48
+ * 2011-12-01 18:21
  */
 (function($, window, document, undefined) {
 
@@ -56,7 +56,8 @@
 				var self = this;
 				$elms.each(function(i) {
 					var $this = $(this),
-						$UIElm = $('<span class="' + self.name + '"></span>');
+						$UIElm = $('<span class="' + self.name + '"></span>'),
+						$label = $('label[for=' + this.id + ']');
 
 					self.sets.push({
 						$orig: $this,
@@ -69,12 +70,19 @@
 
 					$this.parent().addClass('UIElm-check-label');
 
-					$this.click(function() {
+					$this.click(function(ev) {
+						ev.stopPropagation();
 						$this.trigger('check-trigger');
 					});
+					if ( !$.support.opacity ) {
+						$label.click(function(ev) {
+							ev.stopPropagation();
+							$this.click();
+						});
+					}
 
 					$this.bind('check-trigger', function() {
-						if ( $this.prop('checked') ) {
+						if ( !$UIElm.hasClass('checked') ) {
 							$UIElm.addClass('checked');
 						} else {
 							$UIElm.removeClass('checked');
@@ -102,6 +110,7 @@
 				var self = this;
 				$elms.each(function(i) {
 					var $this = $(this),
+						$label = $('label[for=' + this.id + ']'),
 						$UIElm = $('<span class="' + self.name + '"></span>');
 
 					self.sets.push({
@@ -115,14 +124,21 @@
 
 					$this.parent().addClass('UIElm-radio-label');
 
-					$this.click(function() {
+					$this.click(function(ev) {
+						ev.stopPropagation();
 						self.checkOff();
 						$this.trigger('radio-trigger');
 					});
+					if ( !$.support.opacity ) {
+						$label.click(function(ev) {
+							ev.stopPropagation();
+							$this.click();
+						})
+					}
 
 					$this.bind({
 						'radio-trigger': function() {
-							if ( $this.prop('checked') ) {
+							if ( !$UIElm.hasClass('checked') ) {
 								$UIElm.addClass('checked');
 							} else {
 								$UIElm.removeClass('checked');
