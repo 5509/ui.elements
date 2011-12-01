@@ -1,3 +1,82 @@
+@charset "UTF-8";
+/****************************************
+
+          Web Font
+          
+          Tenderness
+          © dot colon
+          http://www.dotcolon.net
+
+*****************************************/
+
+@font-face {
+	font-family: 'Tenderness';
+	src: url(http://webdesignrecipes.com/wp-content/themes/WebDesignRecipes7/tenderness-webfont.eot);
+}
+@font-face {
+	font-family: 'Tenderness';
+	src: url(http://webdesignrecipes.com/wp-content/themes/WebDesignRecipes7/tenderness-webfont.ttf) format("truetype");
+}
+
+
+/* Layout */
+body{
+	font-family: "Tenderness";
+	color: #555;
+	background:url(images/bg.gif) repeat !important;
+	font-size: 20px !important;
+}
+
+	#container{
+		width:640px;
+		margin: 0 auto;
+	}
+	
+	/* コンテンツごとにフロートさせました */
+	.set{
+		margin-bottom: 40px;
+		width: 320px;
+		float: left;
+		min-height: 180px;
+	}
+	
+	p{ margin: 0;}
+	
+
+/* 見出し */
+h1{
+	background: url(images/heading-bg.png) repeat-x 0 50%;
+	text-align: center;
+	margin: 40px 0 60px;
+	font-size: 36px;
+}
+	h1 span{
+		background: url(images/bg.gif) repeat;
+		padding: 20px 40px;
+	}
+
+
+	.label{ /* 見出しっぽいところ */
+		display: block;
+		font-size: 30px;
+	}
+	
+	label{
+		display: block;
+	}
+
+/* リンク */
+
+a{
+	color: #909bc7;
+	cursor: pointer;
+}
+	a:hover,a:active{
+		color: #120eae;
+	}
+
+/* ここから UI */
+
 label.UIElm-check-label,
 label.UIElm-radio-label {
 	cursor: pointer;
@@ -95,3 +174,123 @@ label.UIElm-radio-label {
 			.UIElm-select-option li a.current {
 				background: #eee;
 			}
+
+
+/* ここから追加した部分です */
+/* button */
+
+.button input[type="submit"]{
+	border:0 none;
+	display: block;
+	width: 152px;
+	height:48px;
+	background: url(images/button-bg.png) no-repeat 0 0;
+	cursor: pointer;
+	color: #909bc7;
+	font-family: 'Tenderness';
+	font-size: 24px;
+	line-height: 49px;
+	text-shadow: 0 1px 0  #fff;
+}
+	.button input[type="submit"]:hover{
+		background-position: 0 -48px;
+		color: #120eae;
+	}
+	
+	.button input[type="submit"]:active{
+		background-position: 0 100%;
+		color: #120eae;
+	}
+
+/* Tab */
+#tab-box{
+	width: 279px;
+	height: 303px;
+	background: url(images/tab-box-bg.png) no-repeat 0 0;
+}
+
+	#tab-box .tab{ /* ul */
+		width: 265px;
+		padding: 0;
+		margin: 0 auto;
+		padding-top: 5px;
+	}
+
+	#tab-box .tab li{ /* li */
+		float: left;
+		height: 29px;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+		#tab-box .tab a{ /* a */
+			display: block;
+			width: 88px;
+			height: 100%;
+			color: #909bc7;
+			text-decoration: none;
+			line-height: 29px;
+			text-shadow: 0 1px 0 #fff;
+		}
+			/* タブの背景です */
+			#tab-box .tab a.left{
+				background: url(images/tab-left.png) no-repeat 0 0;
+			}
+			#tab-box .tab a.center{
+				background: url(images/tab-center.png) no-repeat 0 0;
+				width: 89px;
+			}
+			#tab-box .tab a.right{
+				background: url(images/tab-right.png) no-repeat 0 0;
+			}
+			
+			
+				#tab-box .tab a.active{ /* active の時のクラス */
+					background-position: 0 100%;
+					color: #120eae;
+				}
+		
+		/* タブのコンテンツ */
+		#tab-box .tab-content{
+			width:266px;
+			height: 254px;
+			overflow: hidden;
+			margin: 5px;
+		}
+			#tab-box .tab-content p{
+				margin: 20px;
+			}
+
+/* tooltip */
+/* とりあえず、balloon というクラスを作って、背景画像を指定してあります */
+.balloon{
+	width: 191px;
+	height: 59px;
+	background: url(images/tooltip.png) no-repeat 0 0;
+}
+		
+
+/* clearfix */
+
+#container:after,
+#tab-box .tab:after{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+
+#container,
+#tab-box .tab { 
+	display: inline-block; 
+}
+
+/* clearfix for ie7 */
+#container,
+#tab-box .tab { 
+	display: block; 
+}

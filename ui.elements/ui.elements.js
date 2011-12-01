@@ -1,25 +1,23 @@
 /**
  * UI.Elements
  *
- * @version      0.2
+ * @version      0.3
  * @author       nori (norimania@gmail.com)
  * @copyright    5509 (http://5509.me/)
  * @license      The MIT License
  * @link         https://github.com/5509/ui.elements
  *
- * 2011-11-03 03:04
+ * 2011-12-01 15:48
  */
 (function($, window, document, undefined) {
 
 	var UIElements = function($elm, options) {
-
 		var self = this;
 
-		if ( self === window || typeof self === 'function' ) {
+		if ( !(this instanceof UIElements) ) {
 			return new UIElements($elm, options);
 		}
 
-		self.namespace = 'UIElements';
 		// this is also prefix
 		self.$elm = $elm;
 		self._init(options);
@@ -35,13 +33,17 @@
 				});
 			});
 		},
+
 		_create: function(type, name) {
-			console.log('UI created as ' + type);
 			var self = this,
 				_$elms = undefined;
 			type = '_' + type;
 
-			self[type].$elms = self.$elm.find('[name="' + name + '"]');
+			if ( type === '_tab' ) {
+				self[type].$elms = self.$elm.find('.' + name);
+			} else {
+				self[type].$elms = self.$elm.find('[name="' + name + '"]');
+			}
 			_$elms = self[type].$elms;
 
 			self[type].create(_$elms);
@@ -215,8 +217,8 @@
 			create: function($elm) {
 				var self = this,
 					$box = $elm.parent().addClass('UIElm-select-box'),
-					options = $elm.find('option'),
-					defaultVal = options.filter(function() {
+					$options = $elm.find('option'),
+					defaultVal = $options.filter(function() {
 						return this.selected
 					}).text();
 
@@ -230,7 +232,7 @@
 				});
 				self.$selectBox = (function() {
 					var html = [],
-						optionsLen = options.length,
+						optionsLen = $options.length,
 						i = 0;
 
 					html.push('<ul class="UIElm-select-option">');
@@ -238,11 +240,11 @@
 						html.push(
 							'<li>',
 								'<a href="#"',
-								'   data-val="' + options[i].value + '"',
+								'   data-val="' + $options[i].value + '"',
 								'   data-type="UIElm-select-option"',
-								'   class="' + (options[i].selected ? 'current' : '') + '"',
+								'   class="' + ($options[i].selected ? 'current' : '') + '"',
 								'>',
-									$(options).eq(i).text(),
+									$options.eq(i).text(),
 								'</a>',
 							'</li>'
 						);

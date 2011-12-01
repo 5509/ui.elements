@@ -4,13 +4,6 @@
 	<title>ui.elements</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 	<link href="ui.elements/ui.elements.css" rel="stylesheet">
-	<style>
-		body {
-			color: #555;
-			background: url(images/bg.png) repeat;
-			font-size: 14px;
-		}
-	</style>
 	<script src="ui.elements/ui.elements.js"></script>
 	<script>
 		jQuery(function($) {
@@ -29,6 +22,8 @@
 	</script>
 </head>
 <body>
+<article id="container">
+<h1><span>UI ELEMENTS</span></h1>
 	<form method="get" action="">
 		<div class="set">
 			<span class="label">checkbox</span>
@@ -49,7 +44,7 @@
 			</span>
 		</div>
 		<div class="set">
-			<label for="select">select</label>
+			<label for="select" class="label">select</label>
 			<span class="select elm-set">
 				<select id="select" name="select">
 					<option value="">Selet Here...</option>
@@ -59,11 +54,15 @@
 				</select>
 			</span>
 		</div>
-
+		
+		<div class="set">
+		<span class="label">button</span>
 		<p class="button">
 			<input type="submit" value="Submit">
 		</p>
+		</div>
 	</form>
-
+	
+</article>
 </body>
 </html>
