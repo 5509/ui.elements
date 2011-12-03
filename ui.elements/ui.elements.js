@@ -1,13 +1,13 @@
 /**
  * UI.Elements
  *
- * @version      0.4
+ * @version      0.5
  * @author       nori (norimania@gmail.com)
  * @copyright    5509 (http://5509.me/)
  * @license      The MIT License
  * @link         https://github.com/5509/ui.elements
  *
- * 2011-12-01 18:21
+ * 2011-12-03 15:27
  */
 (function($, window, document, undefined) {
 
@@ -57,7 +57,8 @@
 				$elms.each(function(i) {
 					var $this = $(this),
 						$UIElm = $('<span class="' + self.name + '"></span>'),
-						$label = $('label[for=' + this.id + ']');
+						$label = $('label[for=' + this.id + ']'),
+						disabled = $this.prop('disabled');
 
 					self.sets.push({
 						$orig: $this,
@@ -67,11 +68,13 @@
 					});
 
 					if ( !$UIElm ) return;
+					if ( disabled ) $UIElm.addClass('disabled');
 
 					$this.parent().addClass('UIElm-check-label');
 
 					$this.click(function(ev) {
 						ev.stopPropagation();
+						if ( disabled ) return;
 						$this.trigger('check-trigger');
 					});
 					if ( !$.support.opacity ) {
@@ -111,7 +114,8 @@
 				$elms.each(function(i) {
 					var $this = $(this),
 						$label = $('label[for=' + this.id + ']'),
-						$UIElm = $('<span class="' + self.name + '"></span>');
+						$UIElm = $('<span class="' + self.name + '"></span>'),
+						disabled = $this.prop('disabled');
 
 					self.sets.push({
 						$orig: $this,
@@ -121,11 +125,13 @@
 					});
 
 					if ( !$UIElm ) return;
+					if ( disabled ) $UIElm.addClass('disabled');
 
 					$this.parent().addClass('UIElm-radio-label');
 
 					$this.click(function(ev) {
 						ev.stopPropagation();
+						if ( disabled ) return;
 						self.checkOff();
 						$this.trigger('radio-trigger');
 					});

@@ -1,296 +1,297 @@
 @charset "UTF-8";
-/****************************************
 
-          Web Font
-          
-          Tenderness
-          © dot colon
-          http://www.dotcolon.net
+/*
 
-*****************************************/
+For use with the Uniform plugin:
+https://github.com/5509/ui.elements
 
-@font-face {
-	font-family: 'Tenderness';
-	src: url(http://webdesignrecipes.com/wp-content/themes/WebDesignRecipes7/tenderness-webfont.eot);
-}
-@font-face {
-	font-family: 'Tenderness';
-	src: url(http://webdesignrecipes.com/wp-content/themes/WebDesignRecipes7/tenderness-webfont.ttf) format("truetype");
+Designed by Nori Takahashi
+http://webdesignrecipes.com/
+
+*/
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+    display:block;
 }
 
 
 /* Layout */
+
 body{
-	font-family: "Tenderness";
 	color: #555;
-	background:url(images/bg.gif) repeat !important;
-	font-size: 20px !important;
+	background:url(images/body-bg.gif) repeat;
+	font-size: 14px;
+	font-family: 
+    	Verdana, Arial,
+    	'ヒラギノ角ゴ Pro W3',
+    	'Hiragino Kaku Gothic Pro',
+    	Osaka,
+    	'ＭＳ Ｐゴシック', 
+    	sans-serif;
 }
 
 	#container{
-		width:640px;
+		width:940px;
 		margin: 0 auto;
 	}
 	
-	/* コンテンツごとにフロートさせました */
-	.set{
-		margin-bottom: 40px;
-		width: 320px;
+	.half{
+		width: 470px;
 		float: left;
-		min-height: 180px;
+		padding-bottom: 60px;
 	}
 	
-	p{ margin: 0;}
+	fieldset{
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
 	
 
-/* 見出し */
+
+/* Setting */
+
 h1{
 	background: url(images/heading-bg.png) repeat-x 0 50%;
 	text-align: center;
 	margin: 40px 0 60px;
 	font-size: 36px;
+	font-family: 'Cagliostro', sans-serif;
 }
+
 	h1 span{
-		background: url(images/bg.gif) repeat;
+		background: url(images/body-bg.gif) repeat;
 		padding: 20px 40px;
 	}
 
 
-	.label{ /* 見出しっぽいところ */
-		display: block;
-		font-size: 30px;
+h2,	
+legend,
+#select-label{
+	margin: 0;
+	padding: 0;
+	font-size: 30px;
+	font-family: 'Cagliostro', sans-serif;
+	text-shadow: 0 1px 1px #fff;
+	display: block;
+	color: #555;
+}
+
+a {	color:#c65a6c;text-shadow: 0 1px 1px #fff; }
+	a:hover,
+	a:active{color: #fd738a;}
+
+dt{ font-weight: bold;}
+	dd{
+		margin-bottom: 1em;
+		font-style: italic;
 	}
 	
-	label{
-		display: block;
-	}
+small{ padding: 20px 0; }
 
-/* リンク */
 
-a{
-	color: #909bc7;
-	cursor: pointer;
-}
-	a:hover,a:active{
-		color: #120eae;
-	}
+/* checkbox & Radio Buttons */
 
-/* ここから UI */
 
 label.UIElm-check-label,
-label.UIElm-radio-label {
+label.UIElm-radio-label{
 	cursor: pointer;
-}
-	span.checkbox {
-		margin-right: 3px;
-		content: ' ';
-		display: inline-block;
-		width: 20px;
-		height: 24px;
-		position: relative;
-		top: 3px;
-		background: url(images/check.png) no-repeat;
-	}
-	span.checkbox.checked {
-		background-position: 0 -24px;
-	}
-
-	span.radio {
-		margin-right: 3px;
-		content: ' ';
-		display: inline-block;
-		width: 20px;
-		height: 20px;
-		position: relative;
-		top: 5px;
-		background: url(images/radio.png) no-repeat;
-	}
-	span.radio.checked {
-		background-position: 0 -20px;
-	}
-
-.UIElm-select-box {
-	display: inline-block;
-	/display: inline;
+	line-height: 22px;
 	position: relative;
-	/zoom: 1;
+	padding-left: 30px;
+	display: inline-block;
+	margin-bottom: .5em;
 }
 
-	.UIElm-select {
-		padding: 0 0 0 10px;
-		display: inline-block;
-		/display: inline;
-		width: 200px;
-		height: 45px;
-		color: #6c7ab4;
-		background: url(images/select.png) no-repeat;
-		/zoom: 1;
-		text-decoration: none;
-	}
-
-		.UIElm-select span {
-			margin-right: -1px;
-			padding: 0 70px 0 0;
-			display: block;
-			height: 45px;
-			background: url(images/select.png) no-repeat 100% -45px;
-			line-height: 45px;
-			text-shadow: 1px 1px 1px #fff;
-		}
-		.UIElm-select:hover span,
-		.UIElm-select-show .UIElm-select span {
-			background-position: 100% -90px;
-		}
-
-	.UIElm-select-option {
-		list-style: none;
-		margin: 0;
-		border: solid #aaa 1px;
-		border-top: none;
-		padding: 0;
-		width: 208px;
-		position: absolute;
-		top: 45px;
-		left: 0;
-		background: #fcfcfc;
-		font-size: 13px;
-		box-shadow: 0px 1px 3px #aaa;
-	}
-
-		.UIElm-select-option li {
-			border-top: dashed #aaa 1px;
-		}
-		.UIElm-select-option li:first-child {
-			border: none;
-		}
-
-			.UIElm-select-option li a {
-				padding: 10px 20px;
-				display: block;
-				color: #555;
-				text-decoration: none;
-			}
-			.UIElm-select-option li a:hover,
-			.UIElm-select-option li a.current {
-				background: #eee;
-			}
-
-
-/* ここから追加した部分です */
-/* button */
-
-.button input[type="submit"]{
-	border:0 none;
-	display: block;
-	width: 152px;
-	height:48px;
-	background: url(images/button-bg.png) no-repeat 0 0;
-	cursor: pointer;
-	color: #909bc7;
-	font-family: 'Tenderness';
-	font-size: 24px;
-	line-height: 49px;
-	text-shadow: 0 1px 0  #fff;
+.UIElm-radio-label input{
+	position: absolute;
+	top:0;
+	left:0;
 }
-	.button input[type="submit"]:hover{
-		background-position: 0 -48px;
-		color: #120eae;
+
+/* Checkbox */
+
+span.checkbox {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background: url(images/checkbox.png) no-repeat 0 0;
+	position: absolute;
+	top:0;
+	left: 0;
+}
+	
+	span.checkbox.checked {
+		background-position: 0 bottom; /* checked */
 	}
 	
-	.button input[type="submit"]:active{
-		background-position: 0 100%;
-		color: #120eae;
+	span.disabled{
+		background-position: -22px 0; /* disabled */
+	}
+	
+	span.disabled.checked{
+		background-position: -22px 100%; /* checked & disabled */
 	}
 
-/* Tab */
-#tab-box{
-	width: 279px;
-	height: 303px;
-	background: url(images/tab-box-bg.png) no-repeat 0 0;
+
+/* Radio Burrons */
+
+span.radio {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background: url(images/radio.png) no-repeat 0 0;
+	position: absolute;
+	top:0;
+	left: 0;
+}
+	
+	span.radio.checked {
+		background-position: 0 bottom;
+	}
+	
+	span.radio.disabled{
+		background-position: -22px 0;
+	}
+
+
+/* Select Box */
+
+.UIElm-select-box{
+	display: inline-block;
+	position: relative;
+	z-index: 0;
 }
 
-	#tab-box .tab{ /* ul */
-		width: 265px;
-		padding: 0;
-		margin: 0 auto;
-		padding-top: 5px;
-	}
+a.UIElm-select{
+	display: inline-block;
+	width :256px;
+	height: 31px;
+	padding: 0;
+	background: url(images/select-box.png) no-repeat 0 0;
+	line-height: 31px;
+	color: #555;
+	text-decoration: none;
+	position: relative;
+	z-index: 30;
+	text-shadow: 0 1px 1px #fff;
+}
 
-	#tab-box .tab li{ /* li */
-		float: left;
-		height: 29px;
-		list-style: none;
+	a.UIElm-select:hover{
+		color: #999;
+	}
+	
+		a.UIElm-select span{
+			display: block;
+			width: 236px;
+			height: 31px;
+			padding-left: 20px;
+		}
+		
+			a.UIElm-select:hover span {
+				background: url(images/select-box.png) no-repeat 0 100%; /* button */
+			}
+
+
+/* dropdown */
+
+ul.UIElm-select-option{
+	list-style: none;
+	margin: 0;
+	border: solid #ddd 1px;
+	border-top: none;
+	padding: 0 10px 10px;
+	width: 193px;
+	position: absolute;
+	z-index: 20;
+	top:28px;
+	left:10px;
+	background: #fff;
+	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+}
+
+	ul.UIElm-select-option li{
+		border-top: 1px dashed #ddd;
 		padding: 0;
 		margin: 0;
-		text-align: center;
-	}
-		#tab-box .tab a{ /* a */
-			display: block;
-			width: 88px;
-			height: 100%;
-			color: #909bc7;
-			text-decoration: none;
-			line-height: 29px;
-			text-shadow: 0 1px 0 #fff;
-		}
-			/* タブの背景です */
-			#tab-box .tab a.left{
-				background: url(images/tab-left.png) no-repeat 0 0;
-			}
-			#tab-box .tab a.center{
-				background: url(images/tab-center.png) no-repeat 0 0;
-				width: 89px;
-			}
-			#tab-box .tab a.right{
-				background: url(images/tab-right.png) no-repeat 0 0;
-			}
-			
-			
-				#tab-box .tab a.active{ /* active の時のクラス */
-					background-position: 0 100%;
-					color: #120eae;
-				}
 		
-		/* タブのコンテンツ */
-		#tab-box .tab-content{
-			width:266px;
-			height: 254px;
-			overflow: hidden;
-			margin: 5px;
+	}
+	
+		ul.UIElm-select-option li a{
+			display: block;
+			color: #999;
+			text-decoration: none;
+			padding: 8px 10px;
+			border-top:1px dashed #fff;
 		}
-			#tab-box .tab-content p{
-				margin: 20px;
+		
+			ul.UIElm-select-option li a:hover{
+				background: #f0f0f0;
+				color: #333;
+				text-shadow: 0 1px 1px #fff;
 			}
 
-/* tooltip */
-/* とりあえず、balloon というクラスを作って、背景画像を指定してあります */
-.balloon{
-	width: 191px;
-	height: 59px;
-	background: url(images/tooltip.png) no-repeat 0 0;
+/* button */
+#submit{
+	margin-top: 30px;
+    display: inline-block;
+    outline: 0 none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+	font-size: 18px;
+    padding: 5px 30px;
+    text-shadow: 0 1px 1px #fff;
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    color: #120eae;
+    border: solid 1px #6c7ab4;
+    background: #95a9f8;
+    background: -webkit-gradient(linear, left top, left bottom, from(#c2c8fd), to(#95a9f8));
+    background: -moz-linear-gradient(top,  #c2c8fd,  #95a9f8);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#c2c8fd', endColorstr='#95a9f8');
 }
-		
+
+#submit:hover {
+    text-decoration: none;
+    background: #8495db;
+    background: -webkit-gradient(linear, left top, left bottom, from(#95a9f8), to(#8495db));
+    background: -moz-linear-gradient(top,  #95a9f8,  #8495db);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#95a9f8', endColorstr='#8495db');
+}
+
+#submit:active {
+    position: relative;
+    top: 1px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#95a9f8), to(#c2c8fd));
+    background: -moz-linear-gradient(top,  #95a9f8,  #c2c8fd);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#95a9f8', endColorstr='#c2c8fd');
+}
+
+
+
 
 /* clearfix */
-
-#container:after,
-#tab-box .tab:after{
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
+.clearfix:after{ 
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
 
-
-#container,
-#tab-box .tab { 
-	display: inline-block; 
+.clearfix{
+    display: inline-block; 
 }
 
 /* clearfix for ie7 */
-#container,
-#tab-box .tab { 
-	display: block; 
+.clearfix{
+    display: block;
 }
