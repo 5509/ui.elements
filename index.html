@@ -1,68 +1,89 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<title>ui.elements</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-	<link href="ui.elements/ui.elements.css" rel="stylesheet">
-	<script src="ui.elements/ui.elements.js"></script>
-	<script>
-		jQuery(function($) {
-			$('form').UIElements({
-				checkbox: [
-					{ name: 'checkbox[]' }
-				],
-				radio: [
-					{ name: 'radio' }
-				],
-				select: [
-					{ name: 'select' }
-				]
-			});
-		});
-	</script>
+<meta charset="UTF-8">
+<title>jQuery UI.Elements.js</title>
+<link href='http://fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="ui.elements/ui.elements.css">
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script src="ui.elements/ui.elements.js"></script>
+<script>
+$(function() {
+	$('#ui-elemets').UIElements({
+		checkbox: [
+			{ name: 'checkbox[]' }
+		],
+		radio: [
+			{ name: 'radio' }
+		],
+		select: [
+			{ name: 'select' }
+		]
+	});
+});
+</script>
 </head>
 <body>
-<article id="container">
-<h1><span>UI ELEMENTS</span></h1>
-	<form method="get" action="">
-		<div class="set">
-			<span class="label">checkbox</span>
-			<span class="checkboxes elm-set">
-				<label for="check1"><input type="checkbox" name="checkbox[]" id="check1" value="1">checkbox1</label>
-				<label for="check2"><input type="checkbox" name="checkbox[]" id="check2" value="2" checked>checkbox2</label>
-				<label for="check3"><input type="checkbox" name="checkbox[]" id="check3" value="3">checkbox3</label>
-				<label for="check4"><input type="checkbox" name="checkbox[]" id="check4" value="4">checkbox4</label>
-			</span>
-		</div>
-		<div class="set">
-			<span class="label">radio</span>
-			<span class="radios elm-set">
-				<label for="radio1"><input type="radio" name="radio" id="radio1" value="1">radio1</label>
-				<label for="radio2"><input type="radio" name="radio" id="radio2" value="2">radio2</label>
-				<label for="radio3"><input type="radio" name="radio" id="radio3" value="3">radio3</label>
-				<label for="radio4"><input type="radio" name="radio" id="radio4" value="4">radio4</label>
-			</span>
-		</div>
-		<div class="set">
-			<label for="select" class="label">select</label>
-			<span class="select elm-set">
-				<select id="select" name="select">
-					<option value="">Selet Here...</option>
-					<option value="hogehogehoge">hogehogehoge</option>
-					<option value="fugafugafuga">fugafugafuga</option>
-					<option value="piyopiyo">piyopiyo</option>
-				</select>
-			</span>
-		</div>
-		
-		<div class="set">
-		<span class="label">button</span>
-		<p class="button">
-			<input type="submit" value="Submit">
+<div id="container">
+<h1><span>jQuery UI.Elements.js</span></h1>
+
+<form id="ui-elemets" method="get" action="#">
+<div class="clearfix">
+	<div class="half">
+	<label for="select" id="select-label">Select</label>
+		<span>
+		<select id="select" name="select">
+			<option value="">Select</option>
+			<option value="1">Option 1</option>
+			<option value="2">Option 1</option>
+			<option value="3">Option 3</option>
+			<option value="4">Option 4</option>
+		</select>
+		</span>
+	</div>
+	<div class="half">
+		<fieldset>
+		<legend>Radio Button</legend>
+		<label for="radio1"><input type="radio" name="radio" id="radio1" value="1">Radio 1</label><br />
+		<label for="radio2"><input type="radio" name="radio" id="radio2" value="2">Radio 2</label><br />
+		<label for="radio3"><input type="radio" name="radio" id="radio3" value="3" checked="checked">Radio 3</label><br />
+		<label for="radio4"><input type="radio" name="radio" id="radio4" value="4">Radio 4</label><br />
+		<label for="radio5"><input type="radio" name="radio" id="radio5" value="5" disabled="disabled">Radio 5 Disabled</label>
+	</fieldset>
+	</div>
+</div><!-- /clearfix -->
+
+<div class="clearfix">
+	<div class="half">
+		<fieldset>
+		<legend>CheckBox</legend>
+		<label for="check1"><input type="checkbox" name="checkbox[]" id="check1" value="1">Checkbox 1</label><br />
+		<label for="check2"><input type="checkbox" name="checkbox[]" id="check2" value="2">Checkbox 1</label><br />
+		<label for="check3"><input type="checkbox" name="checkbox[]" id="check3" value="3" checked="checked">Checkbox 3</label><br />
+		<label for="check4"><input type="checkbox" name="checkbox[]" id="check4" value="4" disabled="disabled">Checkbox 4 Disabled</label><br />
+		<label for="check5"><input type="checkbox" name="checkbox[]" id="check5" value="5" checked="checked" disabled="disabled">Checkbox 5 Disabled</label>
+		</fieldset>
+		<p>
+		<input type="submit" id="submit" value="Submit" />
 		</p>
-		</div>
-	</form>
-	
-</article>
+	</div>
+	<div class="half">
+		
+		<h2>Ui.Elements.js</h2>
+		<dl>
+		<dt>Author</dt><dd>Kazunori Tokuda</dd>
+		<dt>Copyright</dt><dd>5509 (<a href="http://5509.me/" target="_blank">http://5509.me/</a>)</dd>
+		<dt>License</dt><dd>The MIT License</dd>
+		<dt>Download</dt><dd><a href="https://github.com/5509/ui.elements" target="_blank">https://github.com/5509/ui.elements</a></dd>
+		<dt>Update</dt><dd>2011-12-01 18:21</dd>
+		</dl>
+	</div>
+</div><!-- /clearfix -->
+</form>
+<small>&copy; <a href="http://5509.me/" target="_blank">5509</a> All Rights Reserved. &nbsp; Designed by <a href="http://webdesignrecipes.com/" target="_blank">Web Design Recipes<a/></small>
+</div><!-- /container -->
 </body>
 </html>
