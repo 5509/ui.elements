@@ -13,19 +13,29 @@
 
   $.fn.UIElements = function(conf) {
     var $form = this,
-      checkboxConf = {
-        view          : true,
-        uiClass       : 'checkbox',
-        labelClass    : 'UIElm-check-label',
-        checkedClass  : 'checked',
-        disabledClass : 'disabled'
-      },
-      radioConf = {
-        view          : true,
-        uiClass       : 'radio',
-        labelClass    : 'UIElm-radio-label',
-        checkedClass  : 'checked',
-        disabledClass : 'disabled'
+      runConfs = {
+        checkbox: {
+          view          : true,
+          uiClass       : 'checkbox',
+          labelClass    : 'UIElm-check-label',
+          checkedClass  : 'checked',
+          disabledClass : 'disabled'
+        },
+        radio: {
+          view          : true,
+          uiClass       : 'radio',
+          labelClass    : 'UIElm-radio-label',
+          checkedClass  : 'checked',
+          disabledClass : 'disabled'
+        },
+        select: {
+          strLength          : 10,
+          uiClass            : 'UIElm-select',
+          uiShownClass       : 'UIElm-select-show',
+          boxClass           : 'UIElm-select-box',
+          boxListClass       : 'UIElm-select-option',
+          optionCurrentClass : 'current'
+        }
       };
 
     $.each(conf, function(key, val) {
@@ -34,20 +44,20 @@
         case 'checkbox':
           $form
             .find('input[name="' + val.name + '"]')
-            .checkbox(checkboxConf);
+            .checkbox($.extend(runConfs.checkbox, val.conf || {}));
           break;
 
         case 'radio':
           $form
             .find('input[name="' + val.name + '"]')
-            .radio(radioConf);
+            .radio($.extend(runConfs.radio, val.conf || {}));
           break;
 
         case 'select':
         default:
           $form
             .find('select[name="' + val.name + '"]')
-            .select();
+            .select($.extend(runConfs.select, val.conf || {}));
         }
       });
     });
